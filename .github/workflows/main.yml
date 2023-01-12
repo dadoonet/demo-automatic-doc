@@ -10,8 +10,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.PAT }}
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.PAT }}
       - name: Update resources with Maven
         run: mvn -B process-resources
       - name: Update files if needed
