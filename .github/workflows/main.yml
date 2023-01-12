@@ -1,9 +1,9 @@
-name: Build the main branch
+name: Build the project
 on:
-  push:
-    branches: [ main ]
+  push
+
 jobs:
-  update-files:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
