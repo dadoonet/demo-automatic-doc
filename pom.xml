@@ -13,8 +13,16 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.compiler.version>17</java.compiler.version>
 
-    <stable.version>0.9</stable.version>
+    <elasticsearch.version>8.5.1</elasticsearch.version>
   </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>co.elastic.clients</groupId>
+      <artifactId>elasticsearch-java</artifactId>
+      <version>${elasticsearch.version}</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <resources>

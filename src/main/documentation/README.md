@@ -9,4 +9,4 @@ This is a demo to show how you can automatically generate documentation.
 We have the following versions:
 
 * Current is ${project.version}.
-* Stable is ${stable.version}.
+* This project is tested with Elasticsearch ${elasticsearch.version}.
