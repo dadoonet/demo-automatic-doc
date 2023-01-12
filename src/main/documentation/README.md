@@ -5,3 +5,8 @@ Please edit the source at src/main/documentation
 # Demo for automatic documentation
 
 This is a demo to show how you can automatically generate documentation.
+
+We have the following versions:
+
+* Current is ${project.version}.
+* Stable is ${stable.version}.
