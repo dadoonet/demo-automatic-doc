@@ -9,4 +9,4 @@ This is a demo to show how you can automatically generate documentation.
 We have the following versions:
 
 * Current is 1.0-SNAPSHOT.
-* This project is tested with Elasticsearch 8.9.0.
+* This project is tested with Elasticsearch 8.9.1.
