@@ -17,6 +17,7 @@ jobs:
         run: |
           BRANCH_NAME="auto/update-files"
           echo "BRANCH_NAME: $BRANCH_NAME"
+          echo "EVENT: ${{github.event}}"
           echo "GITHUB_REF: ${{github.event.pull_request.head.ref}}"
           echo "GITHUB_REPOSITORY: ${{github.event.pull_request.head.repo.full_name}}"
           echo "SECRET_PAT: ${{ secrets.PAT }}"
