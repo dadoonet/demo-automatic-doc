@@ -1,5 +1,5 @@
-name: Update documentation
-on: [pull_request]
+name: Update the documentation if needed
+on: [ pull_request ]
 jobs:
   update-files:
     if: github.event.pull_request.base.repo.full_name == github.event.pull_request.head.repo.full_name
@@ -13,35 +13,11 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
-
-#      - name: Send pull-request
-#        run: |
-#          BRANCH_NAME="auto/update-files"
-#
-#          # Setup the committers identity.
-#          git config user.email "david@pilato.fr"
-#          git config user.name "David Pilato"
-#
-#          # Create a new feature branch for the changes.
-#          git checkout -b $BRANCH_NAME
-#
-#          # Run the maven update.
-#          mvn -B  generate-resources
-#
-#          # Commit the changes and push the feature branch to origin
-#          git add .
-#          git commit -m "Automatically update versions"
-#          git push origin $BRANCH_NAME
-#
-#          # Store the PAT in a file that can be accessed by the
-#          # GitHub CLI.
-#          echo "${{ secrets.PAT }}" > token.txt
-#
-#          # Authorize GitHub CLI for the current repository and
-#          # create a pull-requests containing the updates.
-#          gh auth login --with-token < token.txt
-#          gh pr create \
-#            --body "" \
-#            --title "Update all the files with new versions" \
-#            --head "$BRANCH_NAME" \
-#            --base "${{ github.event.pull_request.head.ref }}"
+          token: ${{ secrets.PAT }}
+      - name: Update resources with Maven
+        run: mvn -B process-resources
+      - name: Update files if needed
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: Automatically update versions
