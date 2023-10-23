@@ -1,7 +1,8 @@
 name: Update documentation
 on: [pull_request]
 jobs:
-  build:
+  update-files:
+    if: github.event.pull_request.base.repo.full_name == github.event.pull_request.head.repo.full_name
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -12,16 +13,6 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
-          token: ${{ github.token }}
-      - name: Send pull-request
-        run: |
-          BRANCH_NAME="auto/update-files"
-          echo "BRANCH_NAME: $BRANCH_NAME"
-          echo "EVENT: ${{toJSON(github.event)}}"
-          echo "GITHUB_REF: ${{github.event.pull_request.head.ref}}"
-          echo "GITHUB_REPOSITORY: ${{github.event.pull_request.head.repo.full_name}}"
-          echo "SECRET_PAT: ${{ secrets.PAT }}"
-
 
 #      - name: Send pull-request
 #        run: |
