@@ -13,7 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.compiler.version>17</java.compiler.version>
 
-    <elasticsearch.version>8.11.1</elasticsearch.version>
+    <elasticsearch.version>8.11.2</elasticsearch.version>
   </properties>
 
   <dependencies>
